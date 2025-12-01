@@ -1,13 +1,24 @@
 public class Triangle {
     public static void main(String[] args) {
-        var side_a = 5.;
-        var side_b = 6.;
-        var side_c = 7.;
-        var semi_p = ((side_a + side_b + side_c)/2) ;
-        System.out.println("Периметр треугольника со сторонами a "
-                + side_a + " b " + side_b + " c " + side_c + " = " + (side_a + side_b + side_c));
-        System.out.println("Площадь треугольника со сторонами a "
-                + side_a + " b " + side_b + " c " + side_c + " = " + Math.sqrt(semi_p*(semi_p-side_a)*(semi_p-side_b)*(semi_p-side_c)));
+        printTrianglePerimeter(5.0,6.0,7.0);
+        printTriangleAria(5,6,7);
 
+    }
+
+    static void printTrianglePerimeter(double a, double b, double c){
+        System.out.println("Периметр треугольника со сторонами a "
+                + a + " b " + b + " c " + c + " = " + trianglePerimeter(a, b, c));
+    }
+
+    private static double trianglePerimeter(double a, double b, double c) {
+        return a + b + c;
+    }
+    static void printTriangleAria(double a, double b, double c){
+        System.out.println("Площадь треугольника со сторонами a "
+                + a + " b " + b + " c " + c + " = " + trianglAria(a, b, c));
+    }
+
+    private static double trianglAria(double a, double b, double c) {
+        return Math.sqrt(((a + b + c) / 2) * (((a + b + c) / 2) - a) * (((a + b + c) / 2) - b) * (((a + b + c) / 2) - c));
     }
 }

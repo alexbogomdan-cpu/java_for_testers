@@ -11,6 +11,6 @@ public class TriangleTests {
         void result = System.out.println("Периметр треугольника со сторонами a "
                 + side_a + " b " + side_b + " c " + side_c + " = " + (side_a + side_b + side_c));
         Assertions.assertEquals(18., + (side_a + side_b + side_c));
-
     }
+
 }
