@@ -10,7 +10,7 @@ public class Triangle {
                 + a + " b " + b + " c " + c + " = " + trianglePerimeter(a, b, c));
     }
 
-    private static double trianglePerimeter(double a, double b, double c) {
+    public static double trianglePerimeter(double a, double b, double c) {
         return a + b + c;
     }
     static void printTriangleAria(double a, double b, double c){
@@ -18,7 +18,7 @@ public class Triangle {
                 + a + " b " + b + " c " + c + " = " + trianglAria(a, b, c));
     }
 
-    private static double trianglAria(double a, double b, double c) {
+    public static double trianglAria(double a, double b, double c) {
         return Math.sqrt(((a + b + c) / 2) * (((a + b + c) / 2) - a) * (((a + b + c) / 2) - b) * (((a + b + c) / 2) - c));
     }
 }
