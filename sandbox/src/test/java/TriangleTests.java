@@ -15,4 +15,22 @@ public class TriangleTests {
         double result = t.Aria();
         Assertions.assertEquals(14.696938456699069,result);
     }
+    @Test
+    void cannotCreateTriangleWithnegativSide (){
+        try {
+            new Triangle(-5,6,7);
+            Assertions.fail();
+        } catch (IllegalArgumentException exception){
+            //Ok
+        }
+    }
+    @Test
+    void cannotCreateTriangleWithsumoftwosides() {
+        try {
+            new Triangle(20, 6, 7);
+            Assertions.fail();
+        } catch (IllegalArgumentException exception) {
+            //Ok
+        }
+    }
 }

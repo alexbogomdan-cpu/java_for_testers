@@ -4,11 +4,17 @@ public class Triangle {
     public double side_b;
     public double side_c;
 
-
     public Triangle(double side_a, double side_b, double side_c) {
+
         this.side_a = side_a;
         this.side_b = side_b;
         this.side_c = side_c;
+        if ( side_a<0 || side_b<0 || side_c<0){
+            throw new IllegalArgumentException("Triangle side should be non-negative");
+        }
+        if ( side_a>(side_b+side_c) || side_b>(side_a+side_c) || side_c>(side_a+side_b)){
+            throw new IllegalArgumentException("сумма двух любых сторон должна быть не меньше третьей стороны");
+        }
     }
 
     public static void main(String[] args) {
