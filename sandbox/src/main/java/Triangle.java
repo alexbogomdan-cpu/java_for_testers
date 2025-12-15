@@ -50,6 +50,7 @@ public record Triangle(double side_a, double side_b, double side_c) {
         Triangle triangle = (Triangle) o;
         return (Double.compare(side_a, triangle.side_a) == 0 && Double.compare(side_b, triangle.side_b) == 0 && Double.compare(side_c, triangle.side_c) == 0)
                 || (Double.compare(side_a, triangle.side_b) == 0 && Double.compare(side_b, triangle.side_a) == 0 && Double.compare(side_c, triangle.side_c) == 0)
+                || (Double.compare(side_a, triangle.side_b) == 0 && Double.compare(side_b, triangle.side_c) == 0 && Double.compare(side_c, triangle.side_a) == 0)
                 || (Double.compare(side_a, triangle.side_a) == 0 && Double.compare(side_b, triangle.side_c) == 0 && Double.compare(side_c, triangle.side_b) == 0)
                 || (Double.compare(side_a, triangle.side_c) == 0 && Double.compare(side_b, triangle.side_b) == 0 && Double.compare(side_c, triangle.side_a) == 0)
                 || (Double.compare(side_a, triangle.side_c) == 0 && Double.compare(side_b, triangle.side_a) == 0 && Double.compare(side_c, triangle.side_b) == 0);
@@ -57,6 +58,6 @@ public record Triangle(double side_a, double side_b, double side_c) {
 
     @Override
     public int hashCode() {
-        return Objects.hash(side_a, side_b, side_c);
+        return 1;
     }
 }
