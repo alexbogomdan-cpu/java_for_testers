@@ -26,12 +26,13 @@ public class GroupRemovalTests {
         driver.findElement(By.linkText("Logout")).click();
         driver.quit();
     }
+
     @Test
     public void canRemoveGroup() {
-        if(isElementPresent(By.name("new"))) {
+        if (isElementPresent(By.name("new"))) {
             driver.findElement(By.linkText("groups")).click();
         }
-        if (!isElementPresent(By.name("selected[]"))){
+        if (!isElementPresent(By.name("selected[]"))) {
             driver.findElement(By.name("new")).click();
             driver.findElement(By.name("group_name")).click();
             driver.findElement(By.name("group_name")).sendKeys("test");
@@ -41,7 +42,6 @@ public class GroupRemovalTests {
             driver.findElement(By.name("group_footer")).sendKeys("test");
             driver.findElement(By.name("submit")).click();
             driver.findElement(By.linkText("groups")).click();
-
         }
         driver.findElement(By.name("selected[]")).click();
         driver.findElement(By.name("delete")).click();
@@ -53,7 +53,7 @@ public class GroupRemovalTests {
         try {
             driver.findElement(locator);
             return true;
-        }catch (NoSuchElementException exception) {
+        } catch (NoSuchElementException exception) {
             return false;
         }
     }
