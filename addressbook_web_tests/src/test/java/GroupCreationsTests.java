@@ -5,15 +5,15 @@ public class GroupCreationsTests extends TestBase {
 
     @Test
     public void CanCreateGroup() {
-        openGroupsPage();
-        createGroup("test");
+        app.openGroupsPage();
+        app.createGroup("test", "test", "test");
     }
 
 
     @Test
     void canCreateGroupWithEmtyName () {
-        openGroupsPage();
-        createGroup("");
+        app.openGroupsPage(GroupCreationsTests.this);
+        app.createGroup("", "", "");
     }
 }
 

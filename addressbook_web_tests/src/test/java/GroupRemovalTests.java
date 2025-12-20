@@ -5,11 +5,11 @@ public class GroupRemovalTests extends TestBase {
     @Test
     public void canRemoveGroup() {
 
-        openGroupsPage();
-        if (!isGroupPresent()) {
-            createGroup("test");
+        app.openGroupsPage();
+        if (!app.isGroupPresent()) {
+            app.createGroup("test", "test", "test");
         }
-        removeGroup();
+        app.removeGroup();
 
     }
 
