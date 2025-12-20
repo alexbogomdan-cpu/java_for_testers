@@ -33,8 +33,8 @@ public class ApplicationManager {
         driver.findElement(By.linkText("groups")).click();
     }
 
-    protected void openGroupsPage(TestBase testBase) {
-        if (!testBase.app.isElementPresent(By.name(("new")))) {
+    protected void openGroupsPage() {
+        if (!isElementPresent(By.name(("new")))) {
             driver.findElement(By.linkText("groups")).click();
         }
     }

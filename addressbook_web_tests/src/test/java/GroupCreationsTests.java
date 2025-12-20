@@ -12,7 +12,7 @@ public class GroupCreationsTests extends TestBase {
 
     @Test
     void canCreateGroupWithEmtyName () {
-        app.openGroupsPage(GroupCreationsTests.this);
+        app.openGroupsPage();
         app.createGroup("", "", "");
     }
 }
