@@ -2,11 +2,10 @@ package Manager;
 
 import org.openqa.selenium.By;
 
-public class LoginHelper {
-    private final ApplicationManager manager;
+public class LoginHelper extends HelperBase{
 
     public LoginHelper(ApplicationManager manager){
-        this.manager = manager;
+        super(manager);
     }
 
     void login(String user, String password) {
