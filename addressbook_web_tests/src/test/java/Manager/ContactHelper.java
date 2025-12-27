@@ -25,7 +25,7 @@ public class ContactHelper extends HelperBase {
         openContactPage();
         click(By.name("selected[]"));
         click(By.name("delete"));
-        click(By.linkText("group page"));
+        click(By.linkText("home"));
 
     }
 
