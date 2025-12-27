@@ -15,7 +15,7 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public boolean isGroupPresent() {
+    public   boolean isGroupPresent() {
         openGroupsPage();
         return manager.isElementPresent(By.name("selected[]"));
     }

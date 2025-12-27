@@ -4,12 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ApplicationManager {
     private GroupHelper groups;
-    private ContactHelper contacts;
     private LoginHelper session;
     protected  WebDriver driver;
 
@@ -45,10 +43,4 @@ public class ApplicationManager {
         }
     }
 
-    public ContactHelper contacs() {
-        if(contacts == null){
-            contacts = new ContactHelper(this);
-        }
-        return  contacts;
-    }
 }

@@ -13,12 +13,11 @@ public class GroupCreationsTests extends TestBase {
 
 
     @Test
-    void canCreateGroupWithEmtyName() {
+    void canCreateGroupWithEmtyName () {
         TestBase.app.groups().createGroup(new GroupData());
     }
-
     @Test
-    void canCreateGroupWithNameOnly() {
+    void canCreateGroupWithNameOnly () {
         TestBase.app.groups().createGroup(new GroupData().withName("some name"));
     }
 
