@@ -1,3 +1,5 @@
+package Tests;
+
 import Manager.ApplicationManager;
 import org.junit.jupiter.api.BeforeEach;
 

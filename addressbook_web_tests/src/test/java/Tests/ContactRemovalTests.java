@@ -1,3 +1,5 @@
+package Tests;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
@@ -5,7 +7,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactRemovalTests {
   private WebDriver driver;
@@ -28,16 +29,14 @@ public class ContactRemovalTests {
           driver.findElement(By.linkText("add new")).click();
           driver.findElement(By.name("firstname")).click();
           driver.findElement(By.name("firstname")).sendKeys("first_name");
-          driver.findElement(By.name("firstname")).sendKeys("first_name");
-          driver.findElement(By.cssSelector("body")).click();
           driver.findElement(By.name("middlename")).click();
           driver.findElement(By.name("middlename")).sendKeys("middle_name");
           driver.findElement(By.name("lastname")).click();
           driver.findElement(By.name("lastname")).sendKeys("last_name");
           driver.findElement(By.name("nickname")).click();
-          driver.findElement(By.name("nickname")).click();
           driver.findElement(By.name("nickname")).sendKeys("nickname");
           driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
+          driver.findElement(By.linkText("home")).click();
       }
           driver.findElement(By.id("selected[]")).click();
           driver.findElement(By.name("delete")).click();
