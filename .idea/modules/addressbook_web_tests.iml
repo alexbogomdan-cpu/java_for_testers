@@ -3,9 +3,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../addressbook_web_tests">
+      <sourceFolder url="file://$MODULE_DIR$/../../addressbook_web_tests/.gradle" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../addressbook_web_tests/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../addressbook_web_tests/build" />
       <excludeFolder url="file://$MODULE_DIR$/../../addressbook_web_tests/out" />
+      <excludeFolder url="file://$MODULE_DIR$/../../addressbook_web_tests/src" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

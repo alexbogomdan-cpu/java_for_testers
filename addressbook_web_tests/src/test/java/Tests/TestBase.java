@@ -12,7 +12,7 @@ public class TestBase {
         if (app == null) {
             app = new ApplicationManager();
         }
-        app.init();// метод инициализации
+        app.init("firefox");// метод инициализации
 
     }
 
