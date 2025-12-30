@@ -15,10 +15,10 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public boolean isGroupPresent() {
-        openGroupsPage();
-        return manager.isElementPresent(By.name("selected[]"));
-    }
+//    public boolean isGroupPresent() {
+//        openGroupsPage();
+//        return manager.isElementPresent(By.name("selected[]"));
+//    }
 
     public void createGroup(GroupData group) {
         openGroupsPage();
@@ -38,4 +38,9 @@ public class GroupHelper extends HelperBase {
     }
 
 
+    public int getCount() {
+        openGroupsPage();// открываем страницу групп
+        return manager.driver.findElements(By.name("selected[]")).size();//метод для подсчета колличества групп
+
+    }
 }
