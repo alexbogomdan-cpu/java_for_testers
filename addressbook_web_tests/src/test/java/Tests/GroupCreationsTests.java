@@ -26,5 +26,17 @@ public class GroupCreationsTests extends TestBase {
         TestBase.app.groups().createGroup(new GroupData().withName("some name"));
     }
 
+
+    @Test
+    public void CanCreateMultiplelGroup() {
+        int n = 5;
+        int groupCount = app.groups().getCount();//Подсчитываем колличество груп переред созданием
+        for (int i = 0; i < n; i++ ){//цикл для повторяния действия,которое в фигурных скобках
+            app.groups().createGroup(new GroupData(randomString(i*10), "test", "test"));//создаем новую группу
+        }
+        int newGroupCount = app.groups().getCount();//подсчитываем коллчичество груп после добавления группы
+        Assertions.assertEquals(groupCount + n,newGroupCount);
+    }
+
 }
 

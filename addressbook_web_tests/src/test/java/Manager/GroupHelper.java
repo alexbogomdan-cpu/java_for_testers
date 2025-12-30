@@ -54,7 +54,7 @@ public class GroupHelper extends HelperBase {
         removeSelectedGroups();
     }
 
-    private void selectAllGroups() {
+    private void selectAllGroups() {//функция для выбора всех груп
         var checkboxes = manager.driver.findElements(By.name("selected[]"));
         for (var checkbox: checkboxes) {
             checkbox.click();
