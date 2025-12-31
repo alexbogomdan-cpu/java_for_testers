@@ -44,4 +44,8 @@ public class ContactHelper extends HelperBase {
     }
 
 
+    public int getCount() {
+        openContactPage();
+        return manager.driver.findElements(By.name("selected[]")).size();//метод для подсчета колличества контактов
+    }
 }
