@@ -3,6 +3,9 @@ package Manager;
 import model.GroupData;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GroupHelper extends HelperBase {
 
     public GroupHelper(ApplicationManager manager){
@@ -30,11 +33,19 @@ public class GroupHelper extends HelperBase {
         click(By.linkText("groups"));
     }
 
-    public void removeGroup() {
+    public void removeGroup(GroupData group) {
         openGroupsPage();
-        click(By.name("selected[]"));
+        selectGroup(group);
         removeSelectedGroups();
+        returnToGroupPage();
+    }
+
+    private void returnToGroupPage() {
         click(By.linkText("group page"));
+    }
+
+    private void selectGroup(GroupData group) {
+        click(By.cssSelector(String.format("input[value='%s']",group.id())));//
     }
 
     private void removeSelectedGroups() {
@@ -59,5 +70,17 @@ public class GroupHelper extends HelperBase {
         for (var checkbox: checkboxes) {
             checkbox.click();
         }
+    }
+
+    public List<GroupData> getList() {
+        var groups = new ArrayList<GroupData>();// список
+        var spans = manager.driver.findElements(By.cssSelector("span.group"));//поиск всех эдементов c  заданным значением атрибута класс
+        for (var span : spans){
+            var name = span.getText();
+            var checkbox = span.findElement(By.name("selected[]"));//поиск checkbox внутри элемента span
+            var id = checkbox.getAttribute("value");// у чекбокса берем значение атрибута value
+            groups.add(new GroupData().withId(id).withName(name)); // в список groups добавляем новый объект с заданным именем и индетификатором
+        }
+        return groups;
     }
 }

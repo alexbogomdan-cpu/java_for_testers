@@ -17,6 +17,8 @@ public class TestBase {
         app.init("chrome");// метод инициализации
 
     }
+
+
     public static String randomString(int n) {
         var rnd = new Random();
         var result = "";

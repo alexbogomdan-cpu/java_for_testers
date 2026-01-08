@@ -2,15 +2,11 @@ package Tests;
 
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class GroupCreationsTests extends TestBase {
 
@@ -19,12 +15,15 @@ public class GroupCreationsTests extends TestBase {
         for (var name : List.of("", "group name")) {
             for (var header : List.of("", "group header")) {
                 for (var footer : List.of("", "group footer")) {
-                    result.add(new GroupData(name, header, footer));
+                    result.add(new GroupData().withName(name).withHeader(header).withFooter(footer));
                 }
             }
         }
         for (int i = 0; i < 5; i++) {//цикл для повторяния действия,которое в фигурных скобках
-            result.add(new GroupData(randomString(i * 10), randomString(i * 10), randomString(i * 10)));//добавляем объекты типа GroupDate со случано сгенерированным name,header,footer
+            result.add(new GroupData()
+                    .withName(randomString(i * 10))
+                    .withHeader(randomString(i * 10))
+                    .withFooter(randomString(i * 10)));//добавляем объекты типа GroupDate со случано сгенерированным name,header,footer
         }
         return result;
     }
@@ -43,7 +42,7 @@ public class GroupCreationsTests extends TestBase {
 
     public static List<GroupData> negativeGroupProvider() {
         var result = new ArrayList<GroupData>(List.of(
-                new GroupData("group name'","","")));// создаем пустой список
+                new GroupData("", "group name'","","")));// создаем пустой список
         return result;
 
     }
