@@ -18,11 +18,11 @@ public class GroupRemovalTests extends TestBase {
         }
         int groupCount = app.groups().getCount();//Подсчитываем колличество груп переред созданием
 
-        List<GroupData> oldGroups = app.groups().getList();// возвращает список объектов типа GroupData
+        var oldGroups = app.groups().getList();// возвращает список объектов типа GroupData
         var rnd = new Random();//генератор случайных чисел
         var index = rnd.nextInt(oldGroups.size());// выбираем индекс в диапазоне от 0 до Group.size
         app.groups().removeGroup(oldGroups.get(index));// удаляем группу именно эту группу
-        List<GroupData> newGroups = app.groups().getList();// возвращает список объектов типа GroupData после удаления
+        var newGroups = app.groups().getList();// возвращает список объектов типа GroupData после удаления
         var expectedList = new ArrayList<>(oldGroups);
         expectedList.remove(index);
         int newGroupCount = app.groups().getCount();//подсчитываем коллчичество груп после добавления группы

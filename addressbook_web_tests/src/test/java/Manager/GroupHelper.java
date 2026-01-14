@@ -1,6 +1,7 @@
 package Manager;
 
 import model.GroupData;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -40,6 +41,16 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
+    public void modifyGroup(GroupData group, GroupData modifiedGroup) {
+        openGroupsPage();
+        selectGroup(group);
+        initGroupModification();
+        fillGroupForm(modifiedGroup);
+        submitGroupModification();
+        returnToGroupPage();
+    }
+
+
     private void returnToGroupPage() {
         click(By.linkText("group page"));
     }
@@ -73,6 +84,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public List<GroupData> getList() {
+        openGroupsPage();
         var groups = new ArrayList<GroupData>();// список
         var spans = manager.driver.findElements(By.cssSelector("span.group"));//поиск всех эдементов c  заданным значением атрибута класс
         for (var span : spans){
@@ -82,5 +94,21 @@ public class GroupHelper extends HelperBase {
             groups.add(new GroupData().withId(id).withName(name)); // в список groups добавляем новый объект с заданным именем и индетификатором
         }
         return groups;
+    }
+
+
+
+    private void fillGroupForm(GroupData modifiedGroup) {
+        manager.driver.findElement(By.name("group_name")).click();
+        manager.driver.findElement(By.name("group_name")).sendKeys("testi");
+    }
+
+
+    private void submitGroupModification() {
+        click(By.linkText("Update"));
+    }
+
+    private void initGroupModification() {
+        click(By.linkText("Edit group"));
     }
 }
