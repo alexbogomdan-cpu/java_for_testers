@@ -41,11 +41,11 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public void modifyGroup(GroupData group, GroupData modifiedGroup) {
+    public void modifyGroup(GroupData group, GroupData modifydGroup) {
         openGroupsPage();
         selectGroup(group);
         initGroupModification();
-        fillGroupForm(modifiedGroup);
+        fillGroupForm(modifydGroup);
         submitGroupModification();
         returnToGroupPage();
     }

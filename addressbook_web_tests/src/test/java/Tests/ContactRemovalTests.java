@@ -8,10 +8,8 @@ public class ContactRemovalTests extends TestBase {
     public void canRemovalContact() {
 
         if (!TestBase.app.contacs().isContactPresent()) {
-            TestBase.app.contacs().createContact(new ContactData("asdasd", "awadad", "jdsnsd"));
-
+            TestBase.app.contacs().createContact(new ContactData("", "asdasd", "awadad", "jdsnsd"));
         }
-
         TestBase.app.contacs().removeContact();
     }
 

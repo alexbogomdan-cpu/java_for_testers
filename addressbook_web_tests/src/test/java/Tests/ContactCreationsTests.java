@@ -5,12 +5,10 @@ import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class ContactCreationsTests extends TestBase {
 
@@ -21,15 +19,18 @@ public class ContactCreationsTests extends TestBase {
 
     public static List<ContactData> contactProvider() {
         var result = new ArrayList<ContactData>();
-        for (var firstname : List.of("", "group name")) {
-            for (var middlename : List.of("", "group header")) {
-                for (var lastname : List.of("", "group footer")) {
-                    result.add(new ContactData(firstname, middlename, lastname));
+        for (var firstname : List.of("", "contact name")) {
+            for (var middlename : List.of("", "contact header")) {
+                for (var lastname : List.of("", "contact footer")) {
+                    result.add(new ContactData().withFirstname(firstname).withMiddlename(middlename).withLastname(lastname));
                 }
             }
         }
         for (int i = 0; i < 5; i++) {//цикл для повторяния действия,которое в фигурных скобках
-            result.add(new ContactData(randomString(i * 10), randomString(i * 10), randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
+            result.add(new ContactData()
+                    .withFirstname(randomString(i * 10))
+                    .withMiddlename(randomString(i * 10))
+                    .withLastname(randomString(i * 10)));//добавляем объекты типа GroupDate со случано сгенерированным name,header,footer
         }
         return result;
     }
