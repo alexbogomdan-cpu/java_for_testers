@@ -1,7 +1,6 @@
 package Manager;
 
 import model.GroupData;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;

@@ -22,9 +22,9 @@ public class GroupModificationTests extends TestBase{
         var newGroups = app.groups().getList();// возвращает список объектов типа GroupData после удаления
         var expectedList = new ArrayList<>(oldGroups);
         expectedList.set(index, testData.withId(oldGroups.get(index).id()));
-        Comparator<GroupData> compareById = (o1, o2) -> {// компаратор
-            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));// функция для сравнения двух чисел и эти числа в данном случае идентификаторы групп
-        };
+        Comparator<GroupData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };                          // функция для сравнения двух чисел и эти числа в данном случае идентификаторы групп
         newGroups.sort(compareById);//сортируем списки по возрастанию идентификаторов
         expectedList.sort(compareById);
         Assertions.assertEquals(newGroups, expectedList);//сравниваем реальный список с ожидаемым
