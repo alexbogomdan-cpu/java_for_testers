@@ -30,7 +30,7 @@ public class ContactCreationsTests extends TestBase {
             result.add(new ContactData()
                     .withFirstname(randomString(i * 10))
                     .withMiddlename(randomString(i * 10))
-                    .withLastname(randomString(i * 10)));//добавляем объекты типа GroupDate со случано сгенерированным name,header,footer
+                    .withLastname(randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
         }
         return result;
     }

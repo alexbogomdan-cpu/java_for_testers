@@ -1,7 +1,6 @@
 package Manager;
 
 import model.ContactData;
-import model.GroupData;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void removeContact() {
+    public void removeContact(ContactData contactData) {
         openContactPage();
         click(By.name("selected[]"));
         click(By.name("delete"));
