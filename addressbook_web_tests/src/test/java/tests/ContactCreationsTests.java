@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 
 import common.CommonFunctions;
 import model.ContactData;

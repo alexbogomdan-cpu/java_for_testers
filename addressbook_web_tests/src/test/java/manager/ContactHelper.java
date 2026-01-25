@@ -1,4 +1,4 @@
-package Manager;
+package manager;
 
 import model.ContactData;
 import org.openqa.selenium.By;

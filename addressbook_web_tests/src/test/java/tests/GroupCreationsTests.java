@@ -1,4 +1,4 @@
-package Tests;
+package tests;
 
 import common.CommonFunctions;
 import model.GroupData;
@@ -34,7 +34,7 @@ public class GroupCreationsTests extends TestBase {
     @MethodSource("groupProvider")
     public void CanCreateMultiplelGroup(GroupData group) {//создали тест,который имеет один параметр ввиде обьекта GroupDate
         var oldGroups = app.groups().getList();// возвращает список объектов типа GroupData
-        //int groupCount = app.groups().getCount();//Подсчитываем колличество груп переред созданием
+        //int groupCount = app.groups().getCount();//Подсчитываем колличество групп перед созданием
         app.groups().createGroup(group);//создаем новую группу, которая передается в качестве параметров тестируемой функции
         var newGroups = app.groups().getList();// возвращает список объектов типа GroupData после удаления
         Comparator<GroupData> compareById = (o1, o2) -> {// компаратор
