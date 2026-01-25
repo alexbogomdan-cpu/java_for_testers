@@ -1,7 +1,7 @@
 package Tests;
 
+import common.CommonFunctions;
 import model.ContactData;
-import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,9 +29,9 @@ public class ContactCreationsTests extends TestBase {
         }
         for (int i = 0; i < 5; i++) {//цикл для повторяния действия,которое в фигурных скобках
             result.add(new ContactData()
-                    .withFirstname(randomString(i * 10))
-                    .withMiddlename(randomString(i * 10))
-                    .withLastname(randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
+                    .withFirstname(CommonFunctions.randomString(i * 10))
+                    .withMiddlename(CommonFunctions.randomString(i * 10))
+                    .withLastname(CommonFunctions.randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
         }
         return result;
     }
