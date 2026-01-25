@@ -5,7 +5,10 @@ import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -21,12 +24,9 @@ public class GroupCreationsTests extends TestBase {
                 }
             }
         }
-        for (int i = 0; i < 5; i++) {//цикл для повторяния действия,которое в фигурных скобках
-            result.add(new GroupData()
-                    .withName(CommonFunctions.randomString(i * 10))
-                    .withHeader(CommonFunctions.randomString(i * 10))
-                    .withFooter(CommonFunctions.randomString(i * 10)));//добавляем объекты типа GroupDate со случано сгенерированным name,header,footer
-        }
+        ObjectMapper mapper = new ObjectMapper();
+        var value = mapper.readValue(new File("groups.json"), new TypeReference<List<GroupData>>(){});
+        result.addAll(value);//метод addAll, для добавления списка из файла
         return result;
     }
 

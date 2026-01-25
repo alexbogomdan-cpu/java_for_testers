@@ -3,10 +3,9 @@ package generator;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import common.CommonFunctions;
+import model.ContactData;
 import model.GroupData;
 import tools.jackson.databind.ObjectMapper;
-import tools.jackson.databind.SerializationFeature;
-import tools.jackson.databind.json.JsonMapper;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class Generator {
     @Parameter(names={"--type", "-t"})
     String type;
 
-    @Parameter(names={"--output", "-"})
+    @Parameter(names={"--output", "-o"})
     String output;
 
     @Parameter(names={"--format", "-f"})
@@ -54,7 +53,7 @@ public class Generator {
 
     private Object generateGroups() {
         var result = new ArrayList<GroupData>();//создаем список объектов типа GroupData
-        for (int i = 0; i < count; i++) {//цикл для повторяния действия,которое в фигурных скобках
+        for (int i = 0; i < count; i++) {//цикл для повторения действия,которое в фигурных скобках
             result.add(new GroupData()
                     .withName(CommonFunctions.randomString(i * 10))
                     .withHeader(CommonFunctions.randomString(i * 10))
@@ -64,7 +63,14 @@ public class Generator {
     }
 
     private Object generateContacts() {
-        return null;
+        var result = new ArrayList<ContactData>();
+        for (int i = 0; i < count; i++) {//цикл для повторения действия,которое в фигурных скобках
+            result.add(new ContactData()
+                    .withFirstname(CommonFunctions.randomString(i * 10))
+                    .withMiddlename(CommonFunctions.randomString(i * 10))
+                    .withLastname(CommonFunctions.randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
+        }
+        return result;
     }
 
 

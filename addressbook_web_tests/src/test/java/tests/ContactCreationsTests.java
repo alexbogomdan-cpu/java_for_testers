@@ -2,11 +2,15 @@ package tests;
 
 import common.CommonFunctions;
 import model.ContactData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -27,12 +31,9 @@ public class ContactCreationsTests extends TestBase {
                 }
             }
         }
-        for (int i = 0; i < 5; i++) {//цикл для повторяния действия,которое в фигурных скобках
-            result.add(new ContactData()
-                    .withFirstname(CommonFunctions.randomString(i * 10))
-                    .withMiddlename(CommonFunctions.randomString(i * 10))
-                    .withLastname(CommonFunctions.randomString(i * 10)));//добавляем объекты типа ContactDate со случано сгенерированным name,header,footer
-        }
+        ObjectMapper mapper = new ObjectMapper();
+        var value = mapper.readValue(new File("contacts.json"), new TypeReference<List<ContactData>>(){});
+        result.addAll(value);//метод addAll, для добавления списка из файла
         return result;
     }
 
