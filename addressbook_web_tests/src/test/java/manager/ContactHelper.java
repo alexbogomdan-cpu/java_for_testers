@@ -17,9 +17,10 @@ public class ContactHelper extends HelperBase {
             click(By.linkText("home"));
         }
     }
+
     public List<ContactData> getList() {
         openContactPage();
-        var contacts = new ArrayList<ContactData>();// список
+        var contacts = new ArrayList<ContactData>();// создаем пустой список для контактов
         var tds = manager.driver.findElements(By.cssSelector("tr.entry"));//поиск всех эдементов c  заданным значением атрибута класс
         for (var tr : tds){
             var name = tr.getText();
